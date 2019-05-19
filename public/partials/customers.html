@@ -1,0 +1,54 @@
+<body ng-app="app" ng-controller="customerController" class="container-fluid">
+    <!-- Good luck -->
+    <!-- Feel free to update the code/content and include libraries as you see fit. -->
+    <form class="form-inline col-md-4">
+        <div class="form-group">
+            <label>Search</label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th ng-click="sort('id')">Id<span class="glyphicon sort-icon" ng-show="sortKey=='id'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('email')">Email<span class="glyphicon sort-icon" ng-show="sortKey=='email'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('first_name')">First Name<span class="glyphicon sort-icon"
+                        ng-show="sortKey=='first_name'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('last_name')">Last Name<span class="glyphicon sort-icon"
+                        ng-show="sortKey=='last_name'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('ip')">IP<span class="glyphicon sort-icon" ng-show="sortKey=='ip'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('latitude')">Latitude<span class="glyphicon sort-icon" ng-show="sortKey=='latitude'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('longitude')">Longitude<span class="glyphicon sort-icon"
+                        ng-show="sortKey=='longitude'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('created_at')">Created At<span class="glyphicon sort-icon"
+                        ng-show="sortKey=='created_at'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                <th ng-click="sort('updated_at')">Updated At<span class="glyphicon sort-icon"
+                        ng-show="sortKey=='updated_at'"
+                        ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="customer in customersList|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+                <td>{{customer.id}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.first_name}}</td>
+                <td>{{customer.last_name}}</td>
+                <td>{{customer.ip}}</td>
+                <td>{{customer.latitude}}</td>
+                <td>{{customer.longitude}}</td>
+                <td>{{customer.created_at}}</td>
+                <td>{{customer.updated_at}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+</body>

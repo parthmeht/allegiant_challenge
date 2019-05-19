@@ -11,4 +11,15 @@ angular.module('app.services', []).
     }
 
     return ergastAPI;
+  }).factory('customersServices', function($http){
+    var customersAPI = {};
+
+    customersAPI.getCustomerData = function(){
+      return $http({
+        method: 'GET',
+        url: '../customers.json'
+      });
+    }
+
+    return customersAPI;
   });
