@@ -5,8 +5,8 @@ var customersController = require('../controllers/customersController');
 
 /* GET users listing. */
 
-router.get('/', function(req, res, next) {
-	res.locals.connection.query('SELECT * from customers', function (error, results, fields) {
+/* router.get('/', function(req, res, next) {
+	res.locals.connection.query('SELECT * from customers', function (error, results) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "response": null})); 
 	  		//If there is error, we send the error in the error section with 500 status
@@ -15,7 +15,9 @@ router.get('/', function(req, res, next) {
   			//If there is no error, all is good and response is 200OK.
 	  	}
   	});
-});
+}); */
+
+router.get('/',customersController.list_all_customers);
 
 
 module.exports = router;
