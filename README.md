@@ -31,3 +31,7 @@ DELETE - delete that a specific customer.
 __Customer Search__
 
 localhost:3000 - This url will a page where we will displayed a customer table and we will be able to perform search operations on that table.
+
+__UI/UX Design Challenge__
+
+localhost:3000/#!/profile - Gives you a profile view of a customer.
